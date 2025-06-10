@@ -66,17 +66,34 @@ const MediaPage = () => {
             {GALLERY_IMAGES.map((image) => (
               <div key={image.id} className="scroll-animate group">
                 <div className="bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-                  
-                  {/* Image Area */}
+                    {/* Image Area - Gerçek resim yüklenecek */}
                   <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-                    {/* Placeholder */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Image className="w-12 h-12 text-gray-400" />
+                    {/* Gerçek resim buraya gelecek */}
+                    <img 
+                      src={`/images/gallery/${image.title.toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                      alt={image.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        // Resim yüklenemezse placeholder göster
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    
+                    {/* Fallback Placeholder (resim yüklenemezse gösterilecek) */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col items-center justify-center" style={{display: 'none'}}>
+                      <Image className="w-12 h-12 text-gray-400 mb-2" />
+                      <span className="text-xs text-gray-500 text-center px-2">
+                        {image.title}
+                      </span>
                     </div>
                     
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer">
-                      <Eye className="w-8 h-8 text-white" />
+                      <div className="text-center text-white">
+                        <Eye className="w-8 h-8 mx-auto mb-1" />
+                        <span className="text-sm">Büyüt</span>
+                      </div>
                     </div>
                   </div>
 

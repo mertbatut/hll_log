@@ -464,13 +464,13 @@ const CompanyStrengthsSection = () => {
                         e.target.nextElementSibling.style.display = 'flex';
                       }}
                     />
-                    <div className="w-24 h-24 bg-blue-50 border border-blue-200 flex items-center justify-center" style={{ display: 'none' }}>
-                      <Building className="w-8 h-8 text-blue-600" />
+                    <div className="w-24 h-24 bg-inherit border border-blue-200 flex items-center justify-center" style={{ display: 'none' }}>
+                        <img src="/image/imra.svg" alt="HLL Lojistik Logo" className="w-8 h-8 mr-3" />
                     </div>
                   </div>
                   <div className="p-6 flex-1">
                     <div className="flex items-center mb-4">
-                      <Building className="w-8 h-8 text-blue-600 mr-3" />
+                      <Building className="w-8 h-full text-blue-600 mr-3" />
                       <h4 className="font-bold text-gray-900">HLL Lojistik A.Ş.</h4>
                     </div>
                     <p className="text-gray-600 mb-3">Kurumsal yapı ve güvenilir ortaklık</p>
