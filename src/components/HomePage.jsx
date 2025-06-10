@@ -222,12 +222,28 @@ const HeroSection = () => {
           {/* Contact Card - 4 columns */}
           <div className="lg:col-span-4">
             <div className="hero-animate">
-              <div className="bg-white border border-gray-200 shadow-xl p-8">
-                <div className="text-center mb-8">
-                  <Building className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Hemen İletişime Geçin</h3>
-                  <p className="text-gray-600">Lojistik ihtiyaçlarınız için ücretsiz danışmanlık</p>
+              <div className="bg-white border border-gray-200 shadow-xl overflow-hidden">
+                {/* Header Image */}
+                <div className="h-32 relative">
+                  <img 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBkiWIVlObm3HsYiHdSfWlhS5Gvu_fsJGIaARr1-PxkxEi-SW-_mglVTBTrn-1SP9Q_Ks&usqp=CAU"
+                    alt="HLL Lojistik İletişim"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="w-full h-32 bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center" style={{ display: 'none' }}>
+                    <Building className="w-12 h-12 text-white" />
+                  </div>
                 </div>
+                
+                <div className="p-8">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Hemen İletişime Geçin</h3>
+                    <p className="text-gray-600">Lojistik ihtiyaçlarınız için ücretsiz danışmanlık</p>
+                  </div>
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center">
@@ -267,6 +283,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
@@ -339,11 +356,23 @@ const ServicesSection = () => {
 
               {/* Service Visual */}
               <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div className="bg-gray-50 border border-gray-200 p-8 h-80 flex items-center justify-center">
-                  <div className="text-center">
-                    <service.icon className="w-24 h-24 text-gray-400 mx-auto mb-4" />
-                    <h4 className="text-xl font-bold text-gray-700 mb-2">{service.title}</h4>
-                    <p className="text-gray-500">Görsel içerik yakında eklenecek</p>
+                <div className="bg-gray-50 border border-gray-200 overflow-hidden">
+                  <img 
+                    src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx9E8ZOlj398xf6TuECWH0zsFBwl6wVC1qnFmzl3o_-Hx862aav5pfJaq-QkQktR57qQ0&usqp=CAU`}
+                    alt={service.title}
+                    className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback placeholder */}
+                  <div className="w-full h-80 bg-gray-50 flex items-center justify-center" style={{ display: 'none' }}>
+                    <div className="text-center">
+                      <service.icon className="w-24 h-24 text-gray-400 mx-auto mb-4" />
+                      <h4 className="text-xl font-bold text-gray-700 mb-2">{service.title}</h4>
+                      <p className="text-gray-500">Görsel: service-{index + 1}.jpg</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -393,24 +422,62 @@ const CompanyStrengthsSection = () => {
               </p>
             </div>
 
-            {/* Company Credentials */}
+            {/* Company Credentials with Images */}
             <div className="scroll-animate space-y-6">
-              <div className="bg-white border border-gray-200 p-6">
-                <div className="flex items-center mb-4">
-                  <Award className="w-8 h-8 text-yellow-500 mr-3" />
-                  <h4 className="font-bold text-gray-900">ISO 9001:2015 Sertifikalı</h4>
+              {/* ISO Certification */}
+              <div className="bg-white border border-gray-200 overflow-hidden">
+                <div className="flex">
+                  <div className="w-24 h-24 flex-shrink-0">
+                    <img 
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQBPZwJDNhlQxLrT3vqwfRCJbNGGsii_4GVg&s"
+                      alt="ISO 9001:2015 Sertifikası"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="w-24 h-24 bg-yellow-50 border border-yellow-200 flex items-center justify-center" style={{ display: 'none' }}>
+                      <Award className="w-8 h-8 text-yellow-500" />
+                    </div>
+                  </div>
+                  <div className="p-6 flex-1">
+                    <div className="flex items-center mb-4">
+                      <Award className="w-8 h-8 text-yellow-500 mr-3" />
+                      <h4 className="font-bold text-gray-900">ISO 9001:2015 Sertifikalı</h4>
+                    </div>
+                    <p className="text-gray-600">Uluslararası kalite yönetim sistemi standardı</p>
+                  </div>
                 </div>
-                <p className="text-gray-600">Uluslararası kalite yönetim sistemi standardı</p>
               </div>
               
-              <div className="bg-white border border-gray-200 p-6">
-                <div className="flex items-center mb-4">
-                  <Building className="w-8 h-8 text-blue-600 mr-3" />
-                  <h4 className="font-bold text-gray-900">HLL Lojistik A.Ş.</h4>
-                </div>
-                <p className="text-gray-600 mb-3">Kurumsal yapı ve güvenilir ortaklık</p>
-                <div className="text-sm text-gray-500">
-                  <p>Kuruluş: 2008 | Merkez: Bursa, Türkiye</p>
+              {/* Company Building */}
+              <div className="bg-white border border-gray-200 overflow-hidden">
+                <div className="flex">
+                  <div className="w-24 h-24 flex-shrink-0">
+                    <img 
+                      src="/images/company-building.jpg"
+                      alt="HLL Lojistik Merkez Binası"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="w-24 h-24 bg-blue-50 border border-blue-200 flex items-center justify-center" style={{ display: 'none' }}>
+                      <Building className="w-8 h-8 text-blue-600" />
+                    </div>
+                  </div>
+                  <div className="p-6 flex-1">
+                    <div className="flex items-center mb-4">
+                      <Building className="w-8 h-8 text-blue-600 mr-3" />
+                      <h4 className="font-bold text-gray-900">HLL Lojistik A.Ş.</h4>
+                    </div>
+                    <p className="text-gray-600 mb-3">Kurumsal yapı ve güvenilir ortaklık</p>
+                    <div className="text-sm text-gray-500">
+                      <p>Kuruluş: 2008 | Merkez: Bursa, Türkiye</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -420,12 +487,26 @@ const CompanyStrengthsSection = () => {
           <div className="lg:col-span-7">
             <div className="grid gap-8">
               {COMPANY_STRENGTHS.map((strength, index) => (
-                <div key={index} className="scroll-animate bg-white border border-gray-200 p-8 hover:shadow-lg transition-shadow duration-300">
-                  <div className="flex items-start">
-                    <div className="w-16 h-16 bg-blue-50 border border-blue-200 flex items-center justify-center mr-6 flex-shrink-0">
-                      <strength.icon className="w-8 h-8 text-blue-600" />
+                <div key={index} className="scroll-animate bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                  <div className="flex">
+                    {/* Image Section */}
+                    <div className="w-32 h-32 flex-shrink-0">
+                      <img 
+                        src={`https://www.kinay.com/ckfinder/userfiles/images/Karayolu.jpg`}
+                        alt={strength.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="w-32 h-32 bg-blue-50 border border-blue-200 flex items-center justify-center" style={{ display: 'none' }}>
+                        <strength.icon className="w-8 h-8 text-blue-600" />
+                      </div>
                     </div>
-                    <div className="flex-1">
+                    
+                    {/* Content Section */}
+                    <div className="p-8 flex-1">
                       <div className="flex justify-between items-start mb-3">
                         <h4 className="text-xl font-bold text-gray-900">{strength.title}</h4>
                         <span className="bg-green-50 text-green-700 px-3 py-1 text-sm font-semibold border border-green-200">
