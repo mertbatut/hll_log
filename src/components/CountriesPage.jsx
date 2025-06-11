@@ -1,13 +1,12 @@
-// src/components/CountriesPage.jsx
 import React, { useEffect } from 'react';
-import { 
-  MapPin, 
-  Truck, 
-  Package, 
-  Clock, 
-  Phone, 
-  Building, 
-  Users, 
+import {
+  MapPin,
+  Truck,
+  Package,
+  Clock,
+  Phone,
+  Building,
+  Users,
   Star,
   CheckCircle,
   Globe,
@@ -240,18 +239,14 @@ const NETWORK_OVERVIEW = [
   { icon: Truck, value: '9.3K+', label: 'Günlük Koli', growth: '%15 artış' },
   { icon: Users, value: '273', label: 'Çalışan', growth: '+50 (2025)' }
 ];
-
 // Components
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white py-16 lg:py-24">
-      <div className="absolute inset-0 opacity-[0.015]">
-        <div className="absolute top-0 left-0 w-full h-full" 
-             style={{
-               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-               backgroundSize: '60px 60px'
-             }}>
-        </div>
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-gray-50 py-16 lg:py-24 overflow-hidden">
+      {/* Avrupa Haritası Background - Hero */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-europe-map bg-no-repeat bg-cover bg-center opacity-15 animate-map-float"></div>
+        <div className="absolute inset-0   bg-gradient-to-br from-blue-50/80 via-white/60 to-[rgb(106_142_179_/_80%)]"></div>
       </div>
 
       <div className="relative container mx-auto px-6 lg:px-8">
@@ -259,7 +254,7 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="lg:col-span-7">
             <div className="mb-6">
-              <div className="inline-flex items-center px-4 py-2 bg-white border border-blue-200 text-blue-700 text-sm font-semibold tracking-wide uppercase">
+              <div className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm border border-blue-200 text-blue-700 text-sm font-semibold tracking-wide uppercase shadow-sm">
                 <Globe className="w-4 h-4 mr-2" />
                 Avrupa Geneli Hizmet Ağı
               </div>
@@ -270,7 +265,7 @@ const HeroSection = () => {
               <span className="block text-blue-600 mt-1">Ülkeler</span>
             </h1>
             
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+            <p className="text-xl text-gray-700 leading-relaxed mb-8">
               <strong>6 ülkede</strong> kurduğumuz güçlü operasyon ağı ile Avrupa genelinde 
               kesintisiz ve güvenilir lojistik hizmetleri sunuyoruz.
             </p>
@@ -306,7 +301,7 @@ const HeroSection = () => {
 
           {/* Right Stats */}
           <div className="lg:col-span-5">
-            <div className="bg-white border border-gray-200 shadow-lg p-6">
+            <div className="bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-6">Operasyon Ağı Özeti</h3>
               <div className="space-y-6">
                 {NETWORK_OVERVIEW.map((stat, index) => (
@@ -445,8 +440,14 @@ const CountryCard = ({ country, isReversed = false }) => {
 
 const ExpansionTimeline = () => {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="py-16 bg-gray-50 relative overflow-hidden">
+      {/* Avrupa Haritası Background - Timeline */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-europe-map bg-no-repeat bg-cover bg-center opacity-10 animate-map-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-50/85 via-gray-50/90 to-gray-50/85"></div>
+      </div>
+      
+      <div className="relative container mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="scroll-animate inline-block px-4 py-2 bg-white border border-blue-200 text-blue-700 text-sm font-semibold tracking-wide uppercase mb-4">
             Genişleme Planları
@@ -518,8 +519,14 @@ const ExpansionTimeline = () => {
 
 const CallToActionSection = () => {
   return (
-    <section className="py-16 bg-blue-600">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="py-16 bg-blue-600 relative overflow-hidden">
+      {/* Avrupa Haritası Background - CTA */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-europe-map bg-no-repeat bg-cover bg-center opacity-20 animate-map-drift brightness-0 invert"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-600/90 via-blue-600/80 to-blue-600/90"></div>
+      </div>
+      
+      <div className="relative container mx-auto px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="scroll-animate text-3xl lg:text-4xl font-bold text-white mb-6">
             Hangi Ülkeye Gönderim Yapmak İstiyorsunuz?
@@ -541,7 +548,7 @@ const CallToActionSection = () => {
               <h4 className="font-bold text-white text-sm mb-1">%100 Sigorta</h4>
               <p className="text-blue-100 text-sm">Güvenli Taşıma</p>
             </div>
-            <div className="text-center">
+       <div className="text-center">
               <Activity className="w-8 h-8 text-blue-200 mx-auto mb-3" />
               <h4 className="font-bold text-white text-sm mb-1">Canlı Takip</h4>
               <p className="text-blue-100 text-sm">7/24 İzleme</p>
@@ -572,8 +579,14 @@ const CountriesPage = () => {
       <HeroSection />
       
       {/* Countries Grid */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 lg:px-8">
+      <section className="py-16 bg-white relative overflow-hidden">
+        {/* Avrupa Haritası Background - Content */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-europe-map bg-no-repeat bg-cover bg-center opacity-8 animate-map-slide"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/95 to-white/90"></div>
+        </div>
+        
+        <div className="relative container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="scroll-animate inline-block px-4 py-2 bg-blue-50 text-blue-600 text-sm font-semibold tracking-wide uppercase mb-4">
               Operasyonel Ağımız
@@ -603,7 +616,8 @@ const CountriesPage = () => {
       <CallToActionSection />
       
       {/* Custom CSS */}
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .animate-fade-in {
           opacity: 1 !important;
           transform: translateY(0) !important;
@@ -636,10 +650,107 @@ const CountriesPage = () => {
             direction: ltr;
           }
         }
-      `}</style>
+
+        /* Avrupa Haritası Background Sınıfı */
+        .bg-europe-map {
+          background-image: url('public/image/png-transparent-europe-blank-map-world-map-europe-monochrome-world-black.png');
+        }
+
+        /* Harita Animasyonları */
+        @keyframes map-float {
+          0%, 100% { 
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+          25% { 
+            transform: translate3d(-5px, -8px, 0) scale(1.02);
+          }
+          50% { 
+            transform: translate3d(0, -12px, 0) scale(1.03);
+          }
+          75% { 
+            transform: translate3d(5px, -8px, 0) scale(1.02);
+          }
+        }
+
+        @keyframes map-slide {
+          0% { 
+            transform: translate3d(-20px, 0, 0) scale(1.05);
+          }
+          50% { 
+            transform: translate3d(10px, -5px, 0) scale(1.08);
+          }
+          100% { 
+            transform: translate3d(-20px, 0, 0) scale(1.05);
+          }
+        }
+
+        @keyframes map-pulse {
+          0%, 100% { 
+            transform: scale(1);
+            opacity: 0.10;
+          }
+          50% { 
+            transform: scale(1.05);
+            opacity: 0.15;
+          }
+        }
+
+        @keyframes map-drift {
+          0% { 
+            transform: translate3d(0, 0, 0) scale(1.1);
+          }
+          33% { 
+            transform: translate3d(-15px, -10px, 0) scale(1.12);
+          }
+          66% { 
+            transform: translate3d(10px, -5px, 0) scale(1.08);
+          }
+          100% { 
+            transform: translate3d(0, 0, 0) scale(1.1);
+          }
+        }
+
+        .animate-map-float {
+          animation: map-float 15s ease-in-out infinite;
+        }
+
+        .animate-map-slide {
+          animation: map-slide 20s linear infinite;
+        }
+
+        .animate-map-pulse {
+          animation: map-pulse 12s ease-in-out infinite;
+        }
+
+        .animate-map-drift {
+          animation: map-drift 25s ease-in-out infinite;
+        }
+
+        /* Scroll ile Paralaks Efekti */
+        @media (prefers-reduced-motion: no-preference) {
+          .bg-europe-map {
+            will-change: transform;
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+        }
+
+        /* Responsive opacity ayarları */
+        .opacity-8 {
+          opacity: 0.08;
+        }
+
+        .opacity-15 {
+          opacity: 0.15;
+        }
+
+        .opacity-20 {
+          opacity: 0.20;
+        }
+        `
+      }} />
     </div>
   );
 };
 
 export default CountriesPage;
-

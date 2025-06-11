@@ -1,11 +1,10 @@
-// src/components/ContactPage.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Phone, 
   Mail, 
   MapPin, 
   Clock,
-  Send
+  Send 
 } from 'lucide-react';
 
 // Animation Hook
@@ -58,6 +57,29 @@ const CONTACT_INFO = [
 // Main ContactPage Component
 const ContactPage = () => {
   useScrollAnimations();
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Form gönderme işlemi burada yapılacak
+    alert('Mesajınız gönderildi! En kısa sürede size dönüş yapacağız.');
+  };
 
   return (
     <div className="font-sans">
@@ -112,7 +134,7 @@ const ContactPage = () => {
               </h2>
               
               <div className="scroll-animate bg-white border border-gray-200 p-8 shadow-sm">
-                <form className="space-y-6">
+                <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -120,6 +142,9 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="Adınız Soyadınız"
                       />
@@ -130,6 +155,9 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="Telefon Numaranız"
                       />
@@ -142,6 +170,9 @@ const ContactPage = () => {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="E-posta Adresiniz"
                     />
@@ -153,6 +184,9 @@ const ContactPage = () => {
                     </label>
                     <input
                       type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Mesaj Konusu"
                     />
@@ -163,20 +197,23 @@ const ContactPage = () => {
                       Mesajınız
                     </label>
                     <textarea
-                      rows="5"
-                      className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={5}
+                      className="w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                       placeholder="Lütfen ihtiyaçlarınızı detaylı olarak belirtiniz..."
-                    ></textarea>
+                    />
                   </div>
 
                   <button
-                    type="submit"
+                    onClick={handleSubmit}
                     className="w-full bg-blue-600 text-white py-3 px-6 font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center"
                   >
                     <Send className="mr-2 w-5 h-5" />
                     Mesaj Gönder
                   </button>
-                </form>
+                </div>
               </div>
             </div>
           </div>
@@ -186,17 +223,30 @@ const ContactPage = () => {
       {/* Map Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
-          <h2 className="scroll-animate text-2xl font-bold text-gray-900 text-center mb-8">
-            Konum
-          </h2>
-          
-          <div className="scroll-animate max-w-4xl mx-auto">
-            <div className="bg-gray-200 border border-gray-300 h-96 flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <MapPin className="w-16 h-16 mx-auto mb-4" />
-                <p className="text-lg font-medium">Harita Alanı</p>
-                <p className="text-sm">Bursa, Türkiye</p>
-              </div>
+          <div className="scroll-animate max-w-6xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Konum
+            </h2>
+            
+            {/* Google Maps Embed */}
+            <div className="w-full h-96 border border-gray-300 shadow-sm overflow-hidden">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d190.43437691573888!2d28.94237202459535!3d40.21017447055171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x14ca114e38dd370d%3A0x657381deb2305442!2zS29zZ2ViIEJ1cnNhIEJhdMSxIE3DvGTDvHJsw7zEn8O8!3m2!1d40.209491899999996!2d28.940898699999998!4m5!1s0x14ca1141ea2daaa1%3A0x51075a8ddf261c49!2zw5zDp2V2bGVyLCAzLiBTay4gTm86MTkvQSwgMTYxMjAgTmnMh2zDvGZlci9CdXJzYQ!3m2!1str!2str!4v1749636033013!5m2!1str!2str"
+                width="100%" 
+                height="100%" 
+                className="border-0"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="HLL Lojistik Konum"
+              />
+            </div>
+            
+            {/* Map Alt Bilgisi */}
+            <div className="mt-4 text-center">
+              <p className="text-gray-600 text-sm">
+                Organize Sanayi Bölgesi, Bursa / Türkiye
+              </p>
             </div>
           </div>
         </div>

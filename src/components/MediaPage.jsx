@@ -1,6 +1,5 @@
-// src/components/MediaPage.jsx
-import React, { useEffect } from 'react';
-import { Image, Eye } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Image, Eye, X } from 'lucide-react';
 
 // Animation Hook
 const useScrollAnimations = () => {
@@ -27,23 +26,61 @@ const useScrollAnimations = () => {
 
 // Simple Gallery Data
 const GALLERY_IMAGES = [
-  { id: 1, title: 'Araç Filosu 1' },
-  { id: 2, title: 'Araç Filosu 2' },
-  { id: 3, title: 'Araç Filosu 3' },
-  { id: 4, title: 'Depo Tesisi 1' },
-  { id: 5, title: 'Depo Tesisi 2' },
-  { id: 6, title: 'Depo Tesisi 3' },
-  { id: 7, title: 'Operasyon 1' },
-  { id: 8, title: 'Operasyon 2' },
-  { id: 9, title: 'Operasyon 3' },
-  { id: 10, title: 'Ekip Çalışması 1' },
-  { id: 11, title: 'Ekip Çalışması 2' },
-  { id: 12, title: 'Ekip Çalışması 3' }
+  { id: 1, title: 'Araç Filosu', src: 'https://safarilojistik.com/upload/product-image/large-1667383779.jpg' },
+  { id: 2, title: 'Araç Filosu', src: 'https://www.goodloading.com/wp-content/uploads/2024/03/goodloading-road-freight-forwarder.png' },
+  { id: 3, title: 'Araç Filosu', src: 'https://www.ioscm.com/wp-content/uploads/2022/06/AdobeStock_65931251.jpeg' },
+  { id: 4, title: 'Araç Filosu', src: 'https://media.licdn.com/dms/image/v2/D4E12AQEfNWNSinp_Gg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696979503695?e=2147483647&v=beta&t=Ak_swilFacu44TspUIzGeFA_E2P_iSRYAft_7PCUuy4' },
+  { id: 5, title: 'Araç Filosu', src: 'https://www.seatram.com.au/wp-content/uploads/2017/02/shutterstock_350092247.jpg' },
+  { id: 6, title: 'Araç Filosu', src: 'https://cdn.prod.website-files.com/5ca4d1fd374efbecd845739f/62fbbc3ee846b67820ed003f_Two%20Trucks%20Driving.png' },
+  { id: 7, title: 'Araç Filosu', src: 'https://cdn-platform.wareflex.io/web-marketing/resources/01917437-f391-772d-807d-14a4e6e8fe2c.jpg' },
+  { id: 8, title: 'Araç Filosu', src: 'https://landing.unicoreoverseas.com/assets/images/perevozki/roadfreight.jpg' },
+  { id: 9, title: 'Araç Filosu', src: 'https://www.kinay.com/Images/LojistikHizmetleri/KaraTasimaciligi.webp' },
+  { id: 10, title: 'Araç Filosu', src: 'https://www.hipexcargo.com/images/hizmetler/uluslararasi-karayolu-tasima-hizmetler-579162519-img.jpg' },
+  { id: 11, title: 'Araç Filosu', src: 'https://www.envoylojistik.com/upload/hizmetler/kkkkk.jpg' },
+  { id: 12, title: 'Araç Filosu', src: 'https://cdn.prod.website-files.com/64214054953dd55d1d85f7fd/665dc2fceedfd6a8e9539aa4_Containers.webp' }
 ];
+
+// Lightbox Modal Component
+const Lightbox = ({ image, isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+      <div className="relative max-w-4xl max-h-full">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+        >
+          <X className="w-8 h-8" />
+        </button>
+        <img
+          src={image.src}
+          alt={image.title}
+          className="max-w-full max-h-full object-contain"
+        />
+        <div className="absolute bottom-4 left-4 text-white">
+          <h3 className="text-xl font-semibold">{image.title}</h3>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // Main MediaPage Component
 const MediaPage = () => {
   useScrollAnimations();
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const openLightbox = (image) => {
+    setSelectedImage(image);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setSelectedImage(null);
+  };
 
   return (
     <div className="font-sans">
@@ -54,7 +91,7 @@ const MediaPage = () => {
             Galeri
           </h1>
           <p className="text-lg text-gray-600">
-            HLL Lojistik fotoğraf galerisi
+            İmra Lojistik fotoğraf galerisi
           </p>
         </div>
       </section>
@@ -66,30 +103,21 @@ const MediaPage = () => {
             {GALLERY_IMAGES.map((image) => (
               <div key={image.id} className="scroll-animate group">
                 <div className="bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-                    {/* Image Area - Gerçek resim yüklenecek */}
+                  {/* Image Area */}
                   <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-                    {/* Gerçek resim buraya gelecek */}
+                    {/* Ana resim img tag'i */}
                     <img 
-                      src={`/images/gallery/${image.title.toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                      src={image.src}
                       alt={image.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      onError={(e) => {
-                        // Resim yüklenemezse placeholder göster
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
-                      }}
+                      loading="lazy"
                     />
                     
-                    {/* Fallback Placeholder (resim yüklenemezse gösterilecek) */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col items-center justify-center" style={{display: 'none'}}>
-                      <Image className="w-12 h-12 text-gray-400 mb-2" />
-                      <span className="text-xs text-gray-500 text-center px-2">
-                        {image.title}
-                      </span>
-                    </div>
-                    
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer">
+                    <div 
+                      className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
+                      onClick={() => openLightbox(image)}
+                    >
                       <div className="text-center text-white">
                         <Eye className="w-8 h-8 mx-auto mb-1" />
                         <span className="text-sm">Büyüt</span>
@@ -109,6 +137,13 @@ const MediaPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <Lightbox 
+        image={selectedImage} 
+        isOpen={lightboxOpen} 
+        onClose={closeLightbox} 
+      />
 
       {/* Custom CSS */}
       <style jsx>{`
