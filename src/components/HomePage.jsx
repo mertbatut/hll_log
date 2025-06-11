@@ -1,5 +1,5 @@
 // src/components/HomePage.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { 
   Truck, 
   Globe, 
@@ -31,6 +31,7 @@ import {
   Lock,
   Route
 } from 'lucide-react';
+import NavlunFormModal from './NavlunFormModal';
 
 // Refined Animation Hook
 const useScrollAnimations = () => {
@@ -138,7 +139,7 @@ const TRANSPORT_MODES = [
 ];
 
 // Components
-const HeroSection = () => {
+const HeroSection = ({ onOpenModal }) => {
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -195,9 +196,11 @@ const HeroSection = () => {
                 müşterilerimize kesintisiz ve kaliteli lojistik deneyimi yaşatıyoruz.
               </p>
             </div>
-            
-            <div className="hero-animate flex flex-col sm:flex-row gap-6 mb-12">
-              <button className="group bg-blue-600 text-white px-10 py-4 text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
+              <div className="hero-animate flex flex-col sm:flex-row gap-6 mb-12">
+              <button 
+                onClick={onOpenModal}
+                className="group bg-blue-600 text-white px-10 py-4 text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+              >
                 Ücretsiz Teklif Alın
                 <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
@@ -267,9 +270,10 @@ const HeroSection = () => {
                       <div className="text-sm text-gray-500">Avrupa operasyon merkezi</div>
                     </div>
                   </div>
-                </div>
-
-                <button className="w-full bg-blue-600 text-white py-4 font-semibold hover:bg-blue-700 transition-colors duration-300 mb-4">
+                </div>                <button 
+                  onClick={onOpenModal}
+                  className="w-full bg-blue-600 text-white py-4 font-semibold hover:bg-blue-700 transition-colors duration-300 mb-4"
+                >
                   Ücretsiz Teklif İsteyin
                 </button>
                 
@@ -526,7 +530,7 @@ const CompanyStrengthsSection = () => {
   );
 };
 
-const CallToActionSection = () => {
+const CallToActionSection = ({ onOpenModal }) => {
   return (
     <section className="py-24 bg-blue-600">
       <div className="container mx-auto px-6 lg:px-8">
@@ -560,7 +564,10 @@ const CallToActionSection = () => {
           </div>
           
           <div className="scroll-animate flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-white text-blue-600 px-10 py-4 text-lg font-semibold hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+            <button 
+              onClick={onOpenModal}
+              className="bg-white text-blue-600 px-10 py-4 text-lg font-semibold hover:bg-gray-50 transition-colors duration-300 shadow-lg"
+            >
               Ücretsiz Teklif Alın
             </button>
             <button className="border-2 border-white text-white px-10 py-4 text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
@@ -576,14 +583,21 @@ const CallToActionSection = () => {
 
 // Main HomePage Component
 const HomePage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   useScrollAnimations();
 
   return (
     <div className="font-sans">
-      <HeroSection />
+      <HeroSection onOpenModal={() => setIsModalOpen(true)} />
       <ServicesSection />
       <CompanyStrengthsSection />
-      <CallToActionSection />
+      <CallToActionSection onOpenModal={() => setIsModalOpen(true)} />
+      
+      <NavlunFormModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };
