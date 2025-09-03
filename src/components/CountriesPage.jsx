@@ -68,13 +68,13 @@ const COUNTRIES_DATA = [
     facilities: 3,
     services: [
       { icon: Truck, name: 'Yurtiçi Kara Taşımacılığı', desc: 'Türkiye geneli kapıdan kapıya teslimat', status: 'primary' },
-      { icon: Package, name: 'Depolama & Konsolidasyon', desc: '15.000m² modern depo tesisi', status: 'primary' },
+      { icon: Package, name: 'Depolama & Konsolidasyon', desc: '1.000m² modern depo tesisi', status: 'primary' },
       { icon: Route, name: 'Avrupa Transit Hub', desc: 'Avrupa rotaları koordinasyon merkezi', status: 'primary' },
       { icon: FileText, name: 'Gümrük & Dokümantasyon', desc: 'Türkiye-AB gümrük işlemleri', status: 'secondary' }
     ],
     contact: {
-      phone: '+90 224 XXX XX XX',
-      email: 'turkiye@hll-lojistik.com',
+      phone: '+90 546 403 16 22',
+      email: 'info@imralojistik.com.tr',
       address: 'OSB, Bursa'
     },
     highlights: [
@@ -227,10 +227,10 @@ const COUNTRIES_DATA = [
 ];
 
 const EXPANSION_TIMELINE = [
-  { country: 'Belçika', flag: '🇧🇪', status: 'planning', phase: '2025 Q2', priority: 'high' },
-  { country: 'Avusturya', flag: '🇦🇹', status: 'planning', phase: '2025 Q4', priority: 'high' },
-  { country: 'Polonya', flag: '🇵🇱', status: 'research', phase: '2026 Q1', priority: 'medium' },
-  { country: 'İsviçre', flag: '🇨🇭', status: 'research', phase: '2026 Q3', priority: 'low' }
+  { country: 'Bulgaristan', flag: 'BG', status: 'planning', phase: '2025 Q2', priority: 'high' },
+  { country: 'Romanya', flag: 'RM', status: 'planning', phase: '2025 Q4', priority: 'high' },
+  { country: 'Deutschland', flag: 'DE', status: 'research', phase: '2026 Q1', priority: 'medium' },
+  { country: 'Netherlands', flag: 'NL', status: 'research', phase: '2026 Q3', priority: 'low' }
 ];
 
 const NETWORK_OVERVIEW = [

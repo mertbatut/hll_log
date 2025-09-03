@@ -68,11 +68,11 @@ const TopBar = () => (
         <div className="flex items-center space-x-6">
           <div className="flex items-center">
             <Phone className="w-4 h-4 mr-2" />
-            <span>+90 224 XXX XX XX</span>
+            <span>+90 546 403 16 22</span>
           </div>
           <div className="flex items-center">
             <Mail className="w-4 h-4 mr-2" />
-            <span>info@hll-lojistik.com</span>
+            <span>info@imralojistik.com.tr</span>
           </div>
         </div>
         <div className="flex items-center space-x-4">
@@ -130,12 +130,9 @@ const Navigation = ({ activeSection = 'anasayfa', onNavigate }) => {
 
             {/* Desktop CTA Buttons */}
             <div className="hidden lg:flex items-center space-x-4">
-              <button className="text-gray-700 hover:text-blue-600 font-semibold transition-colors duration-300">
-                Teklif Al
-              </button>
-              <button className="bg-blue-600 text-white px-6 py-3 font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg">
+              <a href='/iletisim' className="bg-blue-600 text-white px-6 py-3 font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg">
                 İletişim
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Toggle */}

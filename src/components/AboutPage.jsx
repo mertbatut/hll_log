@@ -1,6 +1,6 @@
 // src/components/AboutPage.jsx
-import React, { useEffect } from 'react';
-import { 
+import React, { useEffect, useRef } from 'react';
+import {
   Building,
   Users,
   Award,
@@ -9,28 +9,23 @@ import {
   Truck,
   Package,
   Shield,
-  Clock,
   Target,
   TrendingUp,
   CheckCircle,
   Star,
   Globe,
   Route,
-  BarChart3,
   Zap,
-  Timer,
   FileText,
   Phone,
   Mail,
-  Factory,
-  Settings,
   Heart,
-  Handshake,
-  Eye,
-  Lightbulb
+  Handshake
 } from 'lucide-react';
 
-// Animation Hook
+/* ================================
+   Animation Hook
+================================ */
 const useScrollAnimations = () => {
   useEffect(() => {
     const observerOptions = {
@@ -53,20 +48,22 @@ const useScrollAnimations = () => {
   }, []);
 };
 
-// Company Data
+/* ================================
+   Data
+================================ */
 const COMPANY_STATS = [
-  { icon: Calendar, value: '2008', label: 'Kuruluş Yılı', detail: '15+ yıl deneyim' },
-  { icon: Users, value: '273', label: 'Çalışan Sayısı', detail: 'Profesyonel ekip' },
-  { icon: Globe, value: '6', label: 'Ülke', detail: 'Avrupa operasyonu' },
-  { icon: Truck, value: '85+', label: 'Araç Filosu', detail: 'Modern kamyon filosu' },
-  { icon: Package, value: '100K+', label: 'Yıllık Teslimat', detail: 'Başarılı nakliye' },
-  { icon: Building, value: '15K m²', label: 'Depo Alanı', detail: 'Güvenli depolama' }
+  { icon: Calendar, value: '2018 ', label: 'Kuruluş Yılı', detail: '8+ yıl deneyim' },
+  { icon: Users, value: '30', label: 'Çalışan Sayısı', detail: 'Profesyonel ekip' },
+  { icon: Globe, value: '20+', label: 'Ülke', detail: 'Avrupa operasyonu' },
+  { icon: Truck, value: '30+', label: 'Araç Filosu', detail: 'Modern kamyon filosu' },
+  { icon: Package, value: '2K+', label: 'Yıllık Teslimat', detail: 'Başarılı nakliye' },
+  { icon: Building, value: '1000 m²', label: 'Depo Alanı', detail: 'Güvenli depolama' }
 ];
 
 const MILESTONES = [
   {
-    year: '2008',
-    title: 'HLL Lojistik Kuruluşu',
+    year: '2018 ',
+    title: 'İMRA Lojistik Kuruluşu',
     description: 'Bursa\'da kara yolu taşımacılığı alanında faaliyet göstermek üzere kurulduk.',
     icon: Building,
     highlight: true
@@ -86,7 +83,7 @@ const MILESTONES = [
   {
     year: '2014',
     title: 'Depo Tesisi Yatırımı',
-    description: 'Bursa\'da 15.000 m² modern depolama tesisimizi hizmete aldık.',
+    description: 'Bursa\'da 1.000 m² modern depolama tesisimizi hizmete aldık.',
     icon: Package
   },
   {
@@ -94,12 +91,6 @@ const MILESTONES = [
     title: 'Avrupa Genişlemesi',
     description: 'Fransa, İtalya, İspanya ve Hollanda\'da operasyonlarımızı başlattık.',
     icon: Globe
-  },
-  {
-    year: '2020',
-    title: 'Dijital Dönüşüm',
-    description: 'Takip sistemi ve dijital platform yatırımlarımızı gerçekleştirdik.',
-    icon: Settings
   },
   {
     year: '2022',
@@ -145,30 +136,30 @@ const CORE_VALUES = [
 
 const MANAGEMENT_TEAM = [
   {
-    name: 'Ahmet YILMAZ',
-    position: 'Genel Müdür & Kurucu',
-    experience: '20+ yıl',
+    name: 'Halil Mert Saldız',
+    position: 'Genel Müdür & Kurucu Ortak',
+    experience: '7+ yıl',
     expertise: 'Lojistik Yönetimi',
     description: 'Lojistik sektöründe 20 yılı aşkın deneyime sahip. HLL Lojistik\'i sektörde güvenilir bir marka haline getirdi.'
   },
   {
-    name: 'Mehmet KAYA',
-    position: 'Operasyon Müdürü',
+    name: 'Resul Turunç',
+    position: 'Genel Müdür & Kurucu Ortak',
     experience: '15+ yıl',
     expertise: 'Operasyonel Mükemmellik',
     description: 'Avrupa operasyonlarının başarıyla yönetilmesinden sorumlu. Süreç optimizasyonu uzmanı.'
   },
   {
-    name: 'Fatma DEMİR',
-    position: 'Mali İşler Müdürü',
-    experience: '12+ yıl',
+    name: 'Arda Şen',
+    position: 'Operasyon Müdürü',
+    experience: '6+ yıl',
     expertise: 'Finansal Yönetim',
     description: 'Şirketin finansal büyümesini planlıyor ve risk yönetimi konularında uzman.'
   },
   {
-    name: 'Mustafa ÖZKAN',
-    position: 'İş Geliştirme Müdürü',
-    experience: '10+ yıl',
+    name: 'Nil Mutlu Dokuz',
+    position: 'Muhasebe Müdürü',
+    experience: '4+ yıl',
     expertise: 'Satış & Pazarlama',
     description: 'Yeni pazarlar ve müşteri portföyü geliştirme konularında şirketin büyümesini sağlıyor.'
   }
@@ -177,45 +168,52 @@ const MANAGEMENT_TEAM = [
 const CERTIFICATIONS = [
   {
     icon: Award,
-    title: 'ISO 9001:2015',
+    title: 'L2 ULUSLARASI TAŞIMACILIK BELGESİ',
     description: 'Kalite Yönetim Sistemi',
     year: '2022',
     status: 'active'
   },
   {
     icon: Shield,
-    title: 'TOBB Üyeliği',
+    title: 'TİO BELGESİ',
     description: 'Türkiye Odalar Birliği',
     year: '2008',
     status: 'active'
   },
   {
     icon: FileText,
-    title: 'Karayolu Taşıma Ruhsatı',
+    title: 'UND ( ULUSLARARASI NAKLİYECİLER DERNEĞİ) ÜYESİ',
     description: 'Uluslararası Nakliye Belgesi',
     year: '2008',
-    status: 'active'
-  },
-  {
-    icon: Globe,
-    title: 'EU Transport License',
-    description: 'AB Taşımacılık Lisansı',
-    year: '2012',
     status: 'active'
   }
 ];
 
-// Components
-const HeroSection = () => {
+// Referans metinleri (marquee)
+const REFERENCES = [
+  'DEMO PLASTİK',
+  'ALTA',
+  'FETHİYE TAŞIYICILAR KOOP.',
+  'ERKAĞIT',
+  'İLKAN PLASTİK',
+  'AGL LOJİSTİK',
+  'ASAL GLOBAL'
+];
+
+/* ================================
+   Sections
+================================ */
+const HeroSection = ({ onRefsClick }) => {
   return (
     <section className="relative bg-gradient-to-b from-gray-50 to-white py-16 lg:py-24">
       <div className="absolute inset-0 opacity-[0.015]">
-        <div className="absolute top-0 left-0 w-full h-full" 
-             style={{
-               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-               backgroundSize: '60px 60px'
-             }}>
-        </div>
+        <div
+          className="absolute top-0 left-0 w-full h-full"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }}
+        />
       </div>
 
       <div className="relative container mx-auto px-6 lg:px-8">
@@ -228,29 +226,23 @@ const HeroSection = () => {
                 15+ Yıllık Deneyim
               </div>
             </div>
-            
+
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Hakkımızda
-              <span className="block text-blue-600 mt-1">HLL Lojistik</span>
+              <span className="block text-blue-600 mt-1">İMRA Lojistik</span>
             </h1>
-            
+
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                <strong>2008 yılında kurulan HLL Lojistik</strong>, Türkiye merkezli olarak 
-                Avrupa genelinde kara yolu taşımacılığı alanında faaliyet gösteren 
-                köklü bir lojistik firmasıdır.
+                <strong>2018 yılında kurulan İmra Lojistik</strong>, Türkiye merkezli olarak Avrupa ve Dünya genelinde kara yolu taşımacılığı alanında faaliyet gösteren köklü bir lojistik firmasıdır
               </p>
-              
+
               <p>
-                <strong>273 çalışanı</strong> ve <strong>85+ araçlık modern filosu</strong> ile 
-                6 ülkede operasyon yürüten şirketimiz, Bursa merkezli 15.000 m² depolama 
-                tesisi ve Avrupa'daki stratejik lokasyonlardaki ofisleri ile 
-                kesintisiz hizmet sunmaktadır.
+                <strong>45+ çalışanı </strong> ve <strong>30+ araçlık modern filosu </strong> ile 20+ ülkede operasyon yürüten şirketimiz, Bursa merkezli 1.000 m² depolama tesisi ve Bursa merkezli garajı ile kesintisiz hizmet sunmaktadır.
               </p>
-              
+
               <p>
-                Müşteri memnuniyeti odaklı yaklaşımımız, teknoloji yatırımlarımız ve 
-                deneyimli ekibimiz ile <strong>yılda 100.000'den fazla başarılı teslimat</strong> 
+                Müşteri memnuniyeti odaklı yaklaşımımız, teknoloji yatırımlarımız ve deneyimli ekibimiz ile  <strong>yılda 2.000'den fazla başarılı teslimat </strong>
                 gerçekleştiriyoruz.
               </p>
             </div>
@@ -259,7 +251,11 @@ const HeroSection = () => {
               <button className="bg-blue-600 text-white px-8 py-3 font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg">
                 İletişime Geçin
               </button>
-              <button className="border-2 border-gray-800 text-gray-800 px-8 py-3 font-semibold hover:bg-gray-800 hover:text-white transition-all duration-300">
+              <button
+                onClick={onRefsClick}
+                aria-controls="references"
+                className="border-2 border-gray-800 text-gray-800 px-8 py-3 font-semibold hover:bg-gray-800 hover:text-white transition-all duration-300"
+              >
                 Referanslarımız
               </button>
             </div>
@@ -272,7 +268,7 @@ const HeroSection = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center border-b border-gray-100 pb-3">
                   <span className="text-gray-600">Kuruluş</span>
-                  <span className="font-bold text-gray-900">2008</span>
+                  <span className="font-bold text-gray-900">2018</span>
                 </div>
                 <div className="flex justify-between items-center border-b border-gray-100 pb-3">
                   <span className="text-gray-600">Merkez</span>
@@ -288,24 +284,24 @@ const HeroSection = () => {
                 </div>
                 <div className="flex justify-between items-center border-b border-gray-100 pb-3">
                   <span className="text-gray-600">Çalışan Sayısı</span>
-                  <span className="font-bold text-gray-900">273 Kişi</span>
+                  <span className="font-bold text-gray-900">45+</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Kalite Sertifikası</span>
                   <span className="font-bold text-green-600">ISO 9001:2015</span>
                 </div>
               </div>
-              
+
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <h4 className="font-bold text-gray-900 mb-3">İletişim Bilgileri</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center">
                     <Phone className="w-4 h-4 mr-2 text-blue-600" />
-                    <span>+90 224 XXX XX XX</span>
+                    <span>+90 546 403 16 22</span>
                   </div>
                   <div className="flex items-center">
                     <Mail className="w-4 h-4 mr-2 text-blue-600" />
-                    <span>info@hll-lojistik.com</span>
+                    <span>info@imralojistik.com.tr</span>
                   </div>
                   <div className="flex items-center">
                     <MapPin className="w-4 h-4 mr-2 text-blue-600" />
@@ -314,7 +310,7 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>{/* /Right Stats */}
         </div>
       </div>
     </section>
@@ -327,7 +323,7 @@ const StatsSection = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="scroll-animate text-3xl lg:text-4xl font-bold text-white mb-4">
-            Rakamlarla HLL Lojistik
+            Rakamlarla İMRA Lojistik
           </h2>
           <p className="scroll-animate text-lg text-blue-100">
             15 yılda ulaştığımız başarı göstergeleri
@@ -360,10 +356,10 @@ const TimelineSection = () => {
             Şirket Tarihçesi
           </div>
           <h2 className="scroll-animate text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            15 Yıllık Yolculuğumuz
+            8 Yıllık Yolculuğumuz
           </h2>
           <p className="scroll-animate text-lg text-gray-600 max-w-2xl mx-auto">
-            2008'den bugüne kadar geçen sürede attığımız önemli adımlar ve kilometre taşları
+            2018'den bugüne kadar geçen sürede attığımız önemli adımlar ve kilometre taşları
           </p>
         </div>
 
@@ -371,27 +367,24 @@ const TimelineSection = () => {
           <div className="space-y-8">
             {MILESTONES.map((milestone, index) => (
               <div key={index} className={`scroll-animate flex items-start ${milestone.future ? 'opacity-75' : ''}`}>
-                <div className={`w-16 h-16 flex items-center justify-center mr-6 flex-shrink-0 ${
-                  milestone.highlight 
-                    ? 'bg-blue-600 border-4 border-blue-200' 
-                    : milestone.future 
+                <div className={`w-16 h-16 flex items-center justify-center mr-6 flex-shrink-0 ${milestone.highlight
+                    ? 'bg-blue-600 border-4 border-blue-200'
+                    : milestone.future
                       ? 'bg-gray-400 border-4 border-gray-200'
                       : 'bg-white border-4 border-blue-600'
-                }`}>
-                  <milestone.icon className={`w-6 h-6 ${
-                    milestone.highlight ? 'text-white' : milestone.future ? 'text-white' : 'text-blue-600'
-                  }`} />
+                  }`}>
+                  <milestone.icon className={`w-6 h-6 ${milestone.highlight ? 'text-white' : milestone.future ? 'text-white' : 'text-blue-600'
+                    }`} />
                 </div>
-                
+
                 <div className="flex-1">
                   <div className="bg-white border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-xl font-bold text-gray-900">{milestone.title}</h3>
-                      <span className={`px-3 py-1 text-sm font-semibold ${
-                        milestone.future 
+                      <span className={`px-3 py-1 text-sm font-semibold ${milestone.future
                           ? 'bg-orange-100 text-orange-700 border border-orange-200'
                           : 'bg-blue-100 text-blue-700 border border-blue-200'
-                      }`}>
+                        }`}>
                         {milestone.year}
                       </span>
                     </div>
@@ -432,9 +425,9 @@ const ValuesSection = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">{value.title}</h3>
               </div>
-              
+
               <p className="text-gray-600 mb-6 leading-relaxed">{value.description}</p>
-              
+
               <div className="space-y-2">
                 {value.principles.map((principle, principleIndex) => (
                   <div key={principleIndex} className="flex items-center">
@@ -514,7 +507,7 @@ const CertificationsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {CERTIFICATIONS.map((cert, index) => (
             <div key={index} className="scroll-animate bg-white border border-gray-200 p-6 text-center hover:shadow-md transition-shadow duration-200">
               <div className="w-16 h-16 bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-4">
@@ -535,6 +528,43 @@ const CertificationsSection = () => {
   );
 };
 
+const ReferencesSection = ({ innerRef }) => {
+  const LOOP = [...REFERENCES, ...REFERENCES];
+
+  return (
+    <section id="references" ref={innerRef} className="py-16 bg-white">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <div className="scroll-animate inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 border border-blue-200 text-sm font-semibold tracking-wide uppercase mb-3">
+            <Handshake className="w-4 h-4" />
+            Referanslarımız
+          </div>
+        </div>
+
+        {/* Marquee bandı — sağa doğru akış */}
+        <div className="relative overflow-hidden mask-fade group" aria-label="Referanslarımız kayan yazı">
+          <div className="marquee-track-right">
+            {LOOP.map((name, i) => (
+              <div key={`${name}-${i}`} className="flex items-center whitespace-nowrap">
+                <span className="px-4 md:px-6 opacity-30 select-none">•</span>
+                <span className="font-extrabold uppercase tracking-tight text-2xl md:text-4xl text-gray-900">
+                  {name}
+                </span>
+                <span className="px-4 md:px-6 opacity-30 select-none">•</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Hover’da durdurma ipucu (opsiyonel) */}
+          <div className="pointer-events-none absolute right-2 bottom-2 text-[10px] md:text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            Hover to pause
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CallToActionSection = () => {
   return (
     <section className="py-16 bg-blue-600">
@@ -544,12 +574,12 @@ const CallToActionSection = () => {
             Lojistik İhtiyaçlarınız İçin
             <span className="block">Güvenilir Ortağınız</span>
           </h2>
-          
+
           <p className="scroll-animate text-lg text-blue-100 mb-8">
-            15 yıllık deneyimimiz ve güçlü ekibimiz ile 
+            8 yıllık deneyimimiz ve güçlü ekibimiz ile
             kara yolu taşımacılığı ihtiyaçlarınızda yanınızdayız.
           </p>
-          
+
           <div className="scroll-animate flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-blue-600 px-8 py-3 font-semibold hover:bg-gray-50 transition-colors duration-300 shadow-lg">
               Hemen Teklif Alın
@@ -565,31 +595,74 @@ const CallToActionSection = () => {
   );
 };
 
-// Main AboutPage Component
+/* ================================
+   Main
+================================ */
 const AboutPage = () => {
   useScrollAnimations();
 
+  // Referanslara kaydırma
+  const referencesRef = useRef(null);
+  const scrollToReferences = () => {
+    if (referencesRef.current) {
+      referencesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="font-sans">
-      <HeroSection />
+      <HeroSection onRefsClick={scrollToReferences} />
       <StatsSection />
       <TimelineSection />
       <ValuesSection />
       <ManagementSection />
       <CertificationsSection />
+      <ReferencesSection innerRef={referencesRef} />
       <CallToActionSection />
-      
-      {/* Custom CSS */}
+
+      {/* Styles */}
       <style jsx>{`
+        /* Intersection Observer Animations */
         .animate-fade-in {
           opacity: 1 !important;
           transform: translateY(0) !important;
         }
-        
         .scroll-animate {
           opacity: 0;
           transform: translateY(20px);
           transition: all 0.6s ease-out;
+        }
+
+        /* --- Marquee (sağa doğru) ayarları --- */
+        :root {
+          --marquee-duration: 28s; /* hızı buradan değiştir (küçük = daha hızlı) */
+        }
+        .marquee-track-right {
+          display: flex;
+          align-items: center;
+          width: max-content;
+          animation: marqueeRight var(--marquee-duration) linear infinite;
+          will-change: transform;
+        }
+        /* Hover’da durdur */
+        .group:hover .marquee-track-right {
+          animation-play-state: paused;
+        }
+        /* Erişilebilirlik: hareketi azalt tercihine saygı */
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track-right {
+            animation: none;
+          }
+        }
+        /* İki kopya içerik üstünde -50% -> 0 arası kaydır: sağa akış */
+        @keyframes marqueeRight {
+          from { transform: translateX(-50%); }
+          to   { transform: translateX(0); }
+        }
+        /* Kenarlarda yumuşak solma (fade) efekti */
+        .mask-fade {
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+                  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
         }
       `}</style>
     </div>

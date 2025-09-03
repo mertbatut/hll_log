@@ -42,7 +42,7 @@ const NavlunFormModal = ({ isOpen, onClose }) => {
 
       // EmailJS ile mail gönderimi için hazırlanan data
       const emailData = {
-        to_email: 'info@hll-lojistik.com',
+        to_email: 'info@imralojistik.com.tr',
         from_name: `${formData.isim} ${formData.soyisim}`,
         from_email: formData.mail,
         subject: 'Yeni Navlun Teklif Talebi',
@@ -167,7 +167,7 @@ Bu talep ${new Date().toLocaleString('tr-TR')} tarihinde gönderilmiştir.
                   value={formData.telefon}
                   onChange={handleInputChange}
                   className="w-full border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="+90 5XX XXX XX XX"
+                  placeholder="+90 546 403 16 22"
                 />
               </div>
 
@@ -315,30 +315,4 @@ Bu talep ${new Date().toLocaleString('tr-TR')} tarihinde gönderilmiştir.
     </div>
   );
 };
-
-// Örnek kullanım komponenti
-const ExampleUsage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  return (
-    <div className="p-8 bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Navlun Hesaplama Formu</h1>
-        <button 
-          onClick={() => setIsModalOpen(true)}
-          className="group bg-blue-600 text-white px-10 py-4 text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
-        >
-          Ücretsiz Teklif Alın
-          <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-        </button>
-
-        <NavlunFormModal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
-        />
-      </div>
-    </div>
-  );
-};
-
 export default NavlunFormModal;

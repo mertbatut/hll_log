@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
@@ -32,7 +31,6 @@ function App() {
 
   const handleNavigate = (section) => {
     setActiveSection(section);
-    // Sayfa değiştiğinde de en üste çık
     scrollToTop();
   };
 

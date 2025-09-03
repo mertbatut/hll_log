@@ -35,17 +35,17 @@ const CONTACT_INFO = [
   {
     icon: Phone,
     title: 'Telefon',
-    details: ['+90 224 XXX XX XX', '+90 224 XXX XX XX']
+    details: ['+90 546 403 16 22', '+90 546 403 16 22']
   },
   {
     icon: Mail,
     title: 'E-posta',
-    details: ['info@hll-lojistik.com', 'satis@hll-lojistik.com']
+    details: ['info@imralojistik.com.tr', 'operasyon@imralojistik.com.tr']
   },
   {
     icon: MapPin,
     title: 'Adres',
-    details: ['Organize Sanayi Bölgesi', 'Bursa / Türkiye']
+    details: ['ÜÇEVLER MH. 3.(220)SK. NO:19  D:6 ESNAFLAR VE SANATKARLARI KOOPERATİFİ ', 'Bursa / Türkiye']
   },
   {
     icon: Clock,
