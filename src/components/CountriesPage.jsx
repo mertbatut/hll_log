@@ -75,7 +75,7 @@ const COUNTRIES_DATA = [
     contact: {
       phone: '+90 546 403 16 22',
       email: 'info@imralojistik.com.tr',
-      address: 'OSB, Bursa'
+      address: 'ÜÇEVLER MH. 3.(220)SK.  NO:19  D:6     ESNAFLAR VE SANATKARLARI KOOPERATİFİ'
     },
     highlights: [
       'Ana operasyon merkezi',
@@ -88,7 +88,6 @@ const COUNTRIES_DATA = [
     name: 'Almanya',
     flag: '🇩🇪',
     region: 'Avrupa Koordinasyon Hub',
-    status: 'major-hub',
     established: '2012',
     mainCity: 'Hamburg',
     coverage: 'Almanya Geneli',
@@ -101,11 +100,6 @@ const COUNTRIES_DATA = [
       { icon: FileText, name: 'AB Gümrük İşlemleri', desc: 'Avrupa Birliği prosedürleri', status: 'primary' },
       { icon: Building, name: 'Transit Depolama', desc: 'Geçici depolama ve dağıtım', status: 'secondary' }
     ],
-    contact: {
-      phone: '+49 40 XXX XXX XX',
-      email: 'deutschland@hll-lojistik.com',
-      address: 'Hafencity, Hamburg'
-    },
     highlights: [
       'AB gümrük uzmanı',
       'Transit hub merkezi',
@@ -129,11 +123,6 @@ const COUNTRIES_DATA = [
       { icon: Route, name: 'Cross Docking', desc: 'Konsolidasyon ve dağıtım merkezi', status: 'primary' },
       { icon: Timer, name: 'Same Day Delivery', desc: 'Aynı gün teslimat hizmetleri', status: 'secondary' }
     ],
-    contact: {
-      phone: '+33 1 XX XX XX XX',
-      email: 'france@hll-lojistik.com',
-      address: 'La Défense, Paris'
-    },
     highlights: [
       'Express teslimat',
       'Same day servis',
@@ -157,11 +146,6 @@ const COUNTRIES_DATA = [
       { icon: Route, name: 'Milano Hub', desc: 'Kuzey İtalya dağıtım merkezi', status: 'primary' },
       { icon: Package, name: 'Regional Dağıtım', desc: 'İtalya içi bölgesel teslimat', status: 'secondary' }
     ],
-    contact: {
-      phone: '+39 02 XXX XXX XX',
-      email: 'italia@hll-lojistik.com',
-      address: 'Porta Nuova, Milano'
-    },
     highlights: [
       'Alp geçişi uzmanı',
       'Milano hub merkezi',
@@ -169,27 +153,22 @@ const COUNTRIES_DATA = [
     ]
   },
   {
-    id: 'ispanya',
-    name: 'İspanya',
-    flag: '🇪🇸',
-    region: 'İber Yarımadası',
+    id: 'Bulgaristan',
+    name: 'Bulgaristan',
+    flag: 'BG',
+    region: 'Sofya',
     status: 'active',
     established: '2018',
-    mainCity: 'Madrid',
-    coverage: 'İspanya Geneli',
+    mainCity: 'Sofya',
+    coverage: 'Bulgaristan Geneli',
     dailyVolume: '400+',
     employees: '15+',
     facilities: 1,
     services: [
-      { icon: Truck, name: 'İspanya-Türkiye Rotası', desc: 'Direkt kara yolu bağlantısı', status: 'primary' },
-      { icon: Route, name: 'İber Yarımadası', desc: 'İspanya-Portekiz dağıtım ağı', status: 'primary' },
-      { icon: FileText, name: 'Gümrük Desteği', desc: 'İspanya gümrük prosedürleri', status: 'secondary' }
+      { icon: Truck, name: 'Bulgaristan-Türkiye Rotası', desc: 'Direkt kara yolu bağlantısı', status: 'primary' },
+      { icon: Route, name: 'Sofya', desc: 'Türkiye-Bulgaristan dağıtım ağı', status: 'primary' },
+      { icon: FileText, name: 'Gümrük Desteği', desc: 'Bulgaristan gümrük prosedürleri', status: 'secondary' }
     ],
-    contact: {
-      phone: '+34 91 XXX XX XX',
-      email: 'espana@hll-lojistik.com',
-      address: 'Distrito Financiero, Madrid'
-    },
     highlights: [
       'Türkiye direkt rota',
       'İber yarımadası kapsamı',
@@ -213,11 +192,6 @@ const COUNTRIES_DATA = [
       { icon: Route, name: 'Transit Koordinasyon', desc: 'Avrupa transit ağ yönetimi', status: 'primary' },
       { icon: Building, name: 'Konsolidasyon Hub', desc: 'Avrupa yük birleştirme merkezi', status: 'secondary' }
     ],
-    contact: {
-      phone: '+31 20 XXX XX XX',
-      email: 'nederland@hll-lojistik.com',
-      address: 'Zuidas, Amsterdam'
-    },
     highlights: [
       'Benelux uzmanı',
       'Transit koordinasyonu',
@@ -259,17 +233,17 @@ const HeroSection = () => {
                 Avrupa Geneli Hizmet Ağı
               </div>
             </div>
-            
+
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Çalıştığımız
               <span className="block text-blue-600 mt-1">Ülkeler</span>
             </h1>
-            
+
             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              <strong>6 ülkede</strong> kurduğumuz güçlü operasyon ağı ile Avrupa genelinde 
+              <strong>6 ülkede</strong> kurduğumuz güçlü operasyon ağı ile Avrupa genelinde
               kesintisiz ve güvenilir lojistik hizmetleri sunuyoruz.
             </p>
-            
+
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
@@ -340,103 +314,94 @@ const CountryCard = ({ country, isReversed = false }) => {
   };
 
   return (
-    <div className="scroll-animate">
-      <div className={`grid lg:grid-cols-12 gap-8 items-center ${isReversed ? 'lg:direction-rtl' : ''}`}>
+    <div className="scroll-animate max-w-6xl mx-auto">
+      {/* Ana Kart Container */}
+      <div className="bg-white border border-gray-200 shadow-lg p-8">
         
-        {/* Country Info - Compact */}
-        <div className={`lg:col-span-4 ${isReversed ? 'lg:order-2' : ''}`}>
-          <div className="bg-white border border-gray-200 shadow-lg p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center">
-                <span className="text-4xl mr-3">{country.flag}</span>
+        <div className={`grid lg:grid-cols-12 gap-8 items-center ${isReversed ? 'lg:direction-rtl' : ''}`}>
+          
+          {/* Country Info - Compact */}
+          <div className={`lg:col-span-4 ${isReversed ? 'lg:order-2' : ''}`}>
+            <div className="bg-gray-50 border border-gray-200 p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <span className="text-4xl mr-3">{country.flag}</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">{country.name}</h3>
+                    <p className="text-sm text-gray-600">{country.region}</p>
+                  </div>
+                </div>
+                {getStatusBadge(country.status)}
+              </div>
+              
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-4 mb-4 text-center border-t border-gray-100 pt-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">{country.name}</h3>
-                  <p className="text-sm text-gray-600">{country.region}</p>
+                  <div className="text-lg font-bold text-gray-900">{country.established}</div>
+                  <div className="text-xs text-gray-600">Kuruluş</div>
                 </div>
-              </div>
-              {getStatusBadge(country.status)}
-            </div>
-            
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 gap-4 mb-4 text-center border-t border-gray-100 pt-4">
-              <div>
-                <div className="text-lg font-bold text-gray-900">{country.established}</div>
-                <div className="text-xs text-gray-600">Kuruluş</div>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">{country.dailyVolume}</div>
-                <div className="text-xs text-gray-600">Günlük Koli</div>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">{country.employees}</div>
-                <div className="text-xs text-gray-600">Çalışan</div>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-gray-900">{country.facilities}</div>
-                <div className="text-xs text-gray-600">Tesis</div>
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div className="border-t border-gray-100 pt-4">
-              <div className="text-xs text-gray-600 mb-2">İletişim</div>
-              <div className="space-y-1">
-                <div className="flex items-center text-sm">
-                  <Phone className="w-3 h-3 mr-2 text-blue-600" />
-                  <span className="text-gray-700">{country.contact.phone}</span>
+                <div>
+                  <div className="text-lg font-bold text-gray-900">{country.dailyVolume}</div>
+                  <div className="text-xs text-gray-600">Günlük Koli</div>
                 </div>
-                <div className="flex items-center text-sm">
-                  <Building className="w-3 h-3 mr-2 text-blue-600" />
-                  <span className="text-gray-700">{country.contact.address}</span>
+                <div>
+                  <div className="text-lg font-bold text-gray-900">{country.employees}</div>
+                  <div className="text-xs text-gray-600">Çalışan</div>
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-gray-900">{country.facilities}</div>
+                  <div className="text-xs text-gray-600">Tesis</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Services Grid */}
-        <div className={`lg:col-span-8 ${isReversed ? 'lg:order-1' : ''}`}>
-          <div className="grid md:grid-cols-2 gap-4">
-            {country.services.map((service, index) => (
-              <div key={index} className={`bg-white border border-gray-200 p-4 hover:shadow-md transition-shadow duration-200 ${
-                service.status === 'primary' ? 'border-l-4 border-l-blue-600' : 'border-l-4 border-l-gray-300'
-              }`}>
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-gray-50 border border-gray-200 flex items-center justify-center mr-3 flex-shrink-0">
-                    <service.icon className="w-4 h-4 text-gray-600" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-gray-900 text-sm mb-1">{service.name}</h4>
-                    <p className="text-xs text-gray-600 leading-relaxed">{service.desc}</p>
-                    {service.status === 'primary' && (
-                      <div className="mt-2">
-                        <span className="bg-blue-50 text-blue-700 px-2 py-1 text-xs font-medium border border-blue-200">
-                          Ana Hizmet
-                        </span>
-                      </div>
-                    )}
+          {/* Services Grid */}
+          <div className={`lg:col-span-8 ${isReversed ? 'lg:order-1' : ''}`}>
+            <div className="grid md:grid-cols-2 gap-4">
+              {country.services.map((service, index) => (
+                <div key={index} className={`bg-white border border-gray-200 p-4 hover:shadow-md transition-shadow duration-200 ${
+                  service.status === 'primary' ? 'border-l-4 border-l-blue-600' : 'border-l-4 border-l-gray-300'
+                }`}>
+                  <div className="flex items-start">
+                    <div className="w-8 h-8 bg-gray-50 border border-gray-200 flex items-center justify-center mr-3 flex-shrink-0">
+                      <service.icon className="w-4 h-4 text-gray-600" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-bold text-gray-900 text-sm mb-1">{service.name}</h4>
+                      <p className="text-xs text-gray-600 leading-relaxed">{service.desc}</p>
+                      {service.status === 'primary' && (
+                        <div className="mt-2">
+                          <span className="bg-blue-50 text-blue-700 px-2 py-1 text-xs font-medium border border-blue-200">
+                            Ana Hizmet
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Highlights */}
-          <div className="mt-4 bg-gray-50 border border-gray-200 p-4">
-            <h4 className="font-bold text-gray-900 text-sm mb-3">Öne Çıkan Özellikler</h4>
-            <div className="flex flex-wrap gap-2">
-              {country.highlights.map((highlight, index) => (
-                <span key={index} className="bg-white text-gray-700 px-3 py-1 text-xs font-medium border border-gray-200">
-                  {highlight}
-                </span>
               ))}
             </div>
+
+            {/* Highlights */}
+            <div className="mt-4 bg-gray-50 border border-gray-200 p-4">
+              <h4 className="font-bold text-gray-900 text-sm mb-3">Öne Çıkan Özellikler</h4>
+              <div className="flex flex-wrap gap-2">
+                {country.highlights.map((highlight, index) => (
+                  <span key={index} className="bg-white text-gray-700 px-3 py-1 text-xs font-medium border border-gray-200">
+                    {highlight}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
+        
       </div>
     </div>
   );
 };
+
 
 const ExpansionTimeline = () => {
   return (
@@ -446,7 +411,7 @@ const ExpansionTimeline = () => {
         <div className="absolute inset-0 bg-europe-map bg-no-repeat bg-cover bg-center opacity-10 animate-map-pulse"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-gray-50/85 via-gray-50/90 to-gray-50/85"></div>
       </div>
-      
+
       <div className="relative container mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="scroll-animate inline-block px-4 py-2 bg-white border border-blue-200 text-blue-700 text-sm font-semibold tracking-wide uppercase mb-4">
@@ -477,12 +442,11 @@ const ExpansionTimeline = () => {
                 )}
               </div>
               <p className="text-sm text-gray-600 mb-2">{item.phase}</p>
-              <div className={`text-xs font-medium ${
-                item.priority === 'high' ? 'text-red-600' : 
-                item.priority === 'medium' ? 'text-yellow-600' : 'text-gray-600'
-              }`}>
-                {item.priority === 'high' ? 'Yüksek Öncelik' : 
-                 item.priority === 'medium' ? 'Orta Öncelik' : 'Düşük Öncelik'}
+              <div className={`text-xs font-medium ${item.priority === 'high' ? 'text-red-600' :
+                  item.priority === 'medium' ? 'text-yellow-600' : 'text-gray-600'
+                }`}>
+                {item.priority === 'high' ? 'Yüksek Öncelik' :
+                  item.priority === 'medium' ? 'Orta Öncelik' : 'Düşük Öncelik'}
               </div>
             </div>
           ))}
@@ -525,18 +489,18 @@ const CallToActionSection = () => {
         <div className="absolute inset-0 bg-europe-map bg-no-repeat bg-cover bg-center opacity-20 animate-map-drift brightness-0 invert"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-blue-600/90 via-blue-600/80 to-blue-600/90"></div>
       </div>
-      
+
       <div className="relative container mx-auto px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="scroll-animate text-3xl lg:text-4xl font-bold text-white mb-6">
             Hangi Ülkeye Gönderim Yapmak İstiyorsunuz?
           </h2>
-          
+
           <p className="scroll-animate text-lg text-blue-100 mb-8">
-            6 ülkedeki güçlü operasyon ağımız ile size en yakın noktadan 
+            6 ülkedeki güçlü operasyon ağımız ile size en yakın noktadan
             hızlı ve güvenilir teslimat hizmeti sunuyoruz.
           </p>
-          
+
           <div className="scroll-animate grid md:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
               <Timer className="w-8 h-8 text-blue-200 mx-auto mb-3" />
@@ -548,13 +512,13 @@ const CallToActionSection = () => {
               <h4 className="font-bold text-white text-sm mb-1">%100 Sigorta</h4>
               <p className="text-blue-100 text-sm">Güvenli Taşıma</p>
             </div>
-       <div className="text-center">
+            <div className="text-center">
               <Activity className="w-8 h-8 text-blue-200 mx-auto mb-3" />
               <h4 className="font-bold text-white text-sm mb-1">Canlı Takip</h4>
               <p className="text-blue-100 text-sm">7/24 İzleme</p>
             </div>
           </div>
-          
+
           <div className="scroll-animate flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-blue-600 px-8 py-3 font-semibold hover:bg-gray-50 transition-colors duration-300 shadow-lg">
               Ülkeye Özel Teklif Al
@@ -577,7 +541,7 @@ const CountriesPage = () => {
   return (
     <div className="font-sans">
       <HeroSection />
-      
+
       {/* Countries Grid */}
       <section className="py-16 bg-white relative overflow-hidden">
         {/* Avrupa Haritası Background - Content */}
@@ -585,7 +549,7 @@ const CountriesPage = () => {
           <div className="absolute inset-0 bg-europe-map bg-no-repeat bg-cover bg-center opacity-8 animate-map-slide"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/95 to-white/90"></div>
         </div>
-        
+
         <div className="relative container mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="scroll-animate inline-block px-4 py-2 bg-blue-50 text-blue-600 text-sm font-semibold tracking-wide uppercase mb-4">
@@ -595,16 +559,16 @@ const CountriesPage = () => {
               Aktif Olduğumuz Ülkeler
             </h2>
             <p className="scroll-animate text-lg text-gray-600 max-w-2xl mx-auto">
-              Her ülkede yerel uzman ekibimiz ve modern lojistik altyapımız ile 
+              Her ülkede yerel uzman ekibimiz ve modern lojistik altyapımız ile
               kesintisiz hizmet kalitesi sağlıyoruz.
             </p>
           </div>
 
           <div className="space-y-16">
             {COUNTRIES_DATA.map((country, index) => (
-              <CountryCard 
-                key={country.id} 
-                country={country} 
+              <CountryCard
+                key={country.id}
+                country={country}
                 isReversed={index % 2 === 1}
               />
             ))}
@@ -614,7 +578,7 @@ const CountriesPage = () => {
 
       <ExpansionTimeline />
       <CallToActionSection />
-      
+
       {/* Custom CSS */}
       <style dangerouslySetInnerHTML={{
         __html: `

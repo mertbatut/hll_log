@@ -167,25 +167,22 @@ const MANAGEMENT_TEAM = [
 
 const CERTIFICATIONS = [
   {
-    icon: Award,
+    icon: null,
+    text: 'L2',
     title: 'L2 ULUSLARASI TAŞIMACILIK BELGESİ',
     description: 'Kalite Yönetim Sistemi',
-    year: '2022',
-    status: 'active'
   },
   {
-    icon: Shield,
+    icon: null,
+    text: 'TİO',
     title: 'TİO BELGESİ',
     description: 'Türkiye Odalar Birliği',
-    year: '2008',
-    status: 'active'
-  },
+  }
+  ,
   {
     icon: FileText,
     title: 'UND ( ULUSLARARASI NAKLİYECİLER DERNEĞİ) ÜYESİ',
     description: 'Uluslararası Nakliye Belgesi',
-    year: '2008',
-    status: 'active'
   }
 ];
 
@@ -305,7 +302,7 @@ const HeroSection = ({ onRefsClick }) => {
                   </div>
                   <div className="flex items-center">
                     <MapPin className="w-4 h-4 mr-2 text-blue-600" />
-                    <span>OSB, Bursa</span>
+                    <span>ÜÇEVLER MH. 3.(220)SK.  NO:19  D:6     ESNAFLAR VE SANATKARLARI KOOPERATİFİ </span>
                   </div>
                 </div>
               </div>
@@ -368,10 +365,10 @@ const TimelineSection = () => {
             {MILESTONES.map((milestone, index) => (
               <div key={index} className={`scroll-animate flex items-start ${milestone.future ? 'opacity-75' : ''}`}>
                 <div className={`w-16 h-16 flex items-center justify-center mr-6 flex-shrink-0 ${milestone.highlight
-                    ? 'bg-blue-600 border-4 border-blue-200'
-                    : milestone.future
-                      ? 'bg-gray-400 border-4 border-gray-200'
-                      : 'bg-white border-4 border-blue-600'
+                  ? 'bg-blue-600 border-4 border-blue-200'
+                  : milestone.future
+                    ? 'bg-gray-400 border-4 border-gray-200'
+                    : 'bg-white border-4 border-blue-600'
                   }`}>
                   <milestone.icon className={`w-6 h-6 ${milestone.highlight ? 'text-white' : milestone.future ? 'text-white' : 'text-blue-600'
                     }`} />
@@ -382,8 +379,8 @@ const TimelineSection = () => {
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-xl font-bold text-gray-900">{milestone.title}</h3>
                       <span className={`px-3 py-1 text-sm font-semibold ${milestone.future
-                          ? 'bg-orange-100 text-orange-700 border border-orange-200'
-                          : 'bg-blue-100 text-blue-700 border border-blue-200'
+                        ? 'bg-orange-100 text-orange-700 border border-orange-200'
+                        : 'bg-blue-100 text-blue-700 border border-blue-200'
                         }`}>
                         {milestone.year}
                       </span>
@@ -492,6 +489,7 @@ const ManagementSection = () => {
 };
 
 const CertificationsSection = () => {
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-6 lg:px-8">
@@ -509,17 +507,26 @@ const CertificationsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {CERTIFICATIONS.map((cert, index) => (
-            <div key={index} className="scroll-animate bg-white border border-gray-200 p-6 text-center hover:shadow-md transition-shadow duration-200">
+            <div
+              key={index}
+              className="scroll-animate bg-white border border-gray-200 p-6 text-center hover:shadow-md transition-shadow duration-200"
+            >
               <div className="w-16 h-16 bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-4">
-                <cert.icon className="w-8 h-8 text-blue-600" />
+                {/* İKON VARSA İKON, YOKSA METİN (L2 / TİO) */}
+                {cert.icon ? (
+                  <cert.icon className="w-8 h-8 text-blue-600" aria-hidden="true" />
+                ) : (
+                  <span
+                    className="text-blue-700 font-extrabold text-xl leading-none select-none"
+                    aria-label={cert.text}
+                    title={cert.text}
+                  >
+                    {cert.text}
+                  </span>
+                )}
               </div>
               <h4 className="font-bold text-gray-900 mb-2">{cert.title}</h4>
               <p className="text-sm text-gray-600 mb-3">{cert.description}</p>
-              <div className="flex items-center justify-center">
-                <span className="bg-green-100 text-green-700 px-2 py-1 text-xs font-semibold border border-green-200">
-                  {cert.year} - Aktif
-                </span>
-              </div>
             </div>
           ))}
         </div>
@@ -528,36 +535,39 @@ const CertificationsSection = () => {
   );
 };
 
-const ReferencesSection = ({ innerRef }) => {
-  const LOOP = [...REFERENCES, ...REFERENCES];
 
+const ReferencesSection = ({ innerRef }) => {
   return (
-    <section id="references" ref={innerRef} className="py-16 bg-white">
+    <section id="references" ref={innerRef} className="py-16 bg-gray-50">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="scroll-animate inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 border border-blue-200 text-sm font-semibold tracking-wide uppercase mb-3">
+        <div className="text-center mb-12">
+          <div className="scroll-animate inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 text-sm font-medium tracking-wide uppercase mb-4">
             <Handshake className="w-4 h-4" />
             Referanslarımız
           </div>
         </div>
 
-        {/* Marquee bandı — sağa doğru akış */}
-        <div className="relative overflow-hidden mask-fade group" aria-label="Referanslarımız kayan yazı">
-          <div className="marquee-track-right">
-            {LOOP.map((name, i) => (
-              <div key={`${name}-${i}`} className="flex items-center whitespace-nowrap">
-                <span className="px-4 md:px-6 opacity-30 select-none">•</span>
-                <span className="font-extrabold uppercase tracking-tight text-2xl md:text-4xl text-gray-900">
-                  {name}
-                </span>
-                <span className="px-4 md:px-6 opacity-30 select-none">•</span>
+        {/* Reference List */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white border border-gray-200 shadow-sm">
+            <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
+              <h3 className="text-lg font-semibold text-gray-900">Çalıştığımız Firmalar</h3>
+            </div>
+            <div className="p-6">
+              <div className="grid md:grid-cols-2 gap-4">
+                {REFERENCES.map((company, index) => (
+                  <div 
+                    key={index}
+                    className="scroll-animate flex items-center p-3 border-l-4 border-blue-500 bg-gray-50 hover:bg-blue-50 transition-colors duration-200"
+                  >
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-4 flex-shrink-0"></div>
+                    <span className="font-medium text-gray-900">
+                      {company}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          {/* Hover’da durdurma ipucu (opsiyonel) */}
-          <div className="pointer-events-none absolute right-2 bottom-2 text-[10px] md:text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
-            Hover to pause
+            </div>
           </div>
         </div>
       </div>
@@ -594,14 +604,8 @@ const CallToActionSection = () => {
     </section>
   );
 };
-
-/* ================================
-   Main
-================================ */
 const AboutPage = () => {
   useScrollAnimations();
-
-  // Referanslara kaydırma
   const referencesRef = useRef(null);
   const scrollToReferences = () => {
     if (referencesRef.current) {

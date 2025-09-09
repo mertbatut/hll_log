@@ -59,7 +59,7 @@ const useScrollAnimations = () => {
 };
 
 const HERO_STATS = [
-  { icon: Award, value: '15+', label: 'Yıl Tecrübe', detail: 'Sektörel deneyim' },
+  { icon: Award, value: '8+', label: 'Yıl Tecrübe', detail: 'Sektörel deneyim' },
   { icon: Users, value: '500+', label: 'Aktif Müşteri', detail: 'Güvenilen firma' },
   { icon: Globe, value: '25', label: 'Ülke Ağı', detail: 'Avrupa kapsamı' },
   { icon: Package, value: '100K+', label: 'Teslimat', detail: 'Başarılı nakliye' }
