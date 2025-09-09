@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   Truck, 
   Globe, 
@@ -34,7 +34,7 @@ import {
   Database,
   Network
 } from 'lucide-react';
-import NavlunFormModal from './NavlunFormModal';
+// Navlun modal artık App seviyesinde yönetiliyor
 
 const useScrollAnimations = () => {
   useEffect(() => {
@@ -566,7 +566,10 @@ const CallToActionSection = ({ onOpenModal }) => {
             >
               Ücretsiz Teklif Alın
             </button>
-            <button className="border-2 border-white text-white px-10 py-4 text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+            <button 
+              className="border-2 border-white text-white px-10 py-4 text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
+              onClick={() => window.location.href = 'tel:+905464031622'}
+            >
               <Phone className="mr-3 w-5 h-5 inline" />
               +90 546 403 16 22
             </button>
@@ -578,22 +581,16 @@ const CallToActionSection = ({ onOpenModal }) => {
 };
 
 // Main HomePage Component
-const HomePage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const HomePage = ({ onRequestQuote }) => {
   
   useScrollAnimations();
 
   return (
     <div className="font-sans">
-      <HeroSection onOpenModal={() => setIsModalOpen(true)} />
+      <HeroSection onOpenModal={() => onRequestQuote && onRequestQuote()} />
       <ServicesSection />
       <CorporateAdvantagesSection />
-      <CallToActionSection onOpenModal={() => setIsModalOpen(true)} />
-      
-      <NavlunFormModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+      <CallToActionSection onOpenModal={() => onRequestQuote && onRequestQuote()} />
     </div>
   );
 };

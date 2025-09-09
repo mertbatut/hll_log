@@ -116,9 +116,29 @@ const ContactPage = () => {
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-900 mb-2">{contact.title}</h3>
-                          {contact.details.map((detail, index) => (
-                            <p key={index} className="text-gray-600">{detail}</p>
-                          ))}
+                          {contact.details.map((detail, index) => {
+                            const d = String(detail);
+                            const isEmail = d.includes('@');
+                            const isPhone = /[+\d]{6,}/.test(d);
+                            if (isEmail) {
+                              return (
+                                <p key={index} className="text-gray-600">
+                                  <a href={`mailto:${d}`} className="hover:underline">{d}</a>
+                                </p>
+                              );
+                            }
+                            if (isPhone) {
+                              const tel = '+905464031622' === d.replace(/\s/g, '') ? '+905464031622' : 'tel:' + d.replace(/[^+\d]/g, '');
+                              return (
+                                <p key={index} className="text-gray-600">
+                                  <a href={tel.startsWith('tel:') ? tel : `tel:${tel}`} className="hover:underline">{d}</a>
+                                </p>
+                              );
+                            }
+                            return (
+                              <p key={index} className="text-gray-600">{d}</p>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>

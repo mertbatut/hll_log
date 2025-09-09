@@ -93,7 +93,7 @@ Bu talep ${new Date().toLocaleString('tr-TR')} tarihinde gönderilmiştir.
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div data-component="navlun-modal" className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
       <div className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
         {/* Header */}
         <div className="bg-blue-600 text-white p-6 relative">

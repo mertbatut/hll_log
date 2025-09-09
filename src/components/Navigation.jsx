@@ -68,11 +68,11 @@ const TopBar = () => (
         <div className="flex items-center space-x-6">
           <div className="flex items-center">
             <Phone className="w-4 h-4 mr-2" />
-            <span>+90 546 403 16 22</span>
+            <a href="tel:+905464031622" className="hover:underline">+90 546 403 16 22</a>
           </div>
           <div className="flex items-center">
             <Mail className="w-4 h-4 mr-2" />
-            <span>info@imralojistik.com.tr</span>
+            <a href="mailto:info@imralojistik.com.tr" className="hover:underline">info@imralojistik.com.tr</a>
           </div>
         </div>
         <div className="flex items-center space-x-4">

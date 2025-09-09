@@ -220,7 +220,7 @@ const HeroSection = ({ onRefsClick }) => {
             <div className="mb-6">
               <div className="inline-flex items-center px-4 py-2 bg-white border border-blue-200 text-blue-700 text-sm font-semibold tracking-wide uppercase">
                 <Building className="w-4 h-4 mr-2" />
-                15+ Yıllık Deneyim
+                8+ Yıllık Deneyim
               </div>
             </div>
 

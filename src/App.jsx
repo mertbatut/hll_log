@@ -6,10 +6,12 @@ import CountriesPage from './components/CountriesPage';
 import AboutPage from './components/AboutPage';
 import MediaPage from './components/MediaPage';
 import ContactPage from './components/ContactPage';
+import NavlunFormModal from './components/NavlunFormModal';
 
 function App() {
   const [activeSection, setActiveSection] = useState('anasayfa');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   // Scroll pozisyonunu takip et
   useEffect(() => {
@@ -34,20 +36,57 @@ function App() {
     scrollToTop();
   };
 
+  const handleRequestQuote = () => {
+    setIsQuoteModalOpen(true);
+  };
+
+  useEffect(() => {
+    const handler = (e) => {
+      try {
+        const target = e.target;
+        // Avoid intercepting inside the navlun modal itself
+        if (target.closest && target.closest('[data-component="navlun-modal"]')) return;
+
+        const clickable = target.closest && (target.closest('button') || target.closest('[role="button"]'));
+        if (!clickable) return;
+
+        const text = (clickable.innerText || '').toLowerCase();
+
+        // Open quote modal for any button containing 'teklif'
+        if (text.includes('teklif')) {
+          e.preventDefault();
+          setIsQuoteModalOpen(true);
+          return;
+        }
+
+        // Dial on common call button phrases
+        if (text.includes('ileti') || text.includes('ara') || text.includes('+90 546 403 16 22') || text.includes('546 403 16 22')) {
+          e.preventDefault();
+          window.location.href = 'tel:+905464031622';
+          return;
+        }
+      } catch (err) {
+        // no-op
+      }
+    };
+    document.addEventListener('click', handler, true);
+    return () => document.removeEventListener('click', handler, true);
+  }, []);
+
   const renderContent = () => {
     switch (activeSection) {
       case 'anasayfa':
-        return <HomePage />;
+        return <HomePage onRequestQuote={handleRequestQuote} />;
       case 'hakkimizda':
-        return <AboutPage/>;
+        return <AboutPage onRequestQuote={handleRequestQuote} />;
       case 'ulkeler':
-        return <CountriesPage/>;
+        return <CountriesPage onRequestQuote={handleRequestQuote} />;
       case 'iletisim':
         return <ContactPage />;
       case 'medya':
         return <MediaPage />;
       default:
-        return <HomePage />;
+        return <HomePage onRequestQuote={handleRequestQuote} />;
     }
   };
 
@@ -56,10 +95,15 @@ function App() {
       <Navigation 
         activeSection={activeSection}
         onNavigate={handleNavigate}
+        onRequestQuote={handleRequestQuote}
       />
       <main>
         {renderContent()}
       </main>
+      <NavlunFormModal 
+        isOpen={isQuoteModalOpen} 
+        onClose={() => setIsQuoteModalOpen(false)} 
+      />
       
       {/* En Üste Çık Butonu */}
       <button
