@@ -12,8 +12,8 @@ const NAVIGATION_ITEMS = [
 
 const Logo = () => (
   <div className="flex items-center space-x-3 group cursor-pointer">
-    <div className="w-12 h-12 bg-blue-600 flex items-center justify-center group-hover:bg-blue-700 transition-colors duration-300">
-     <img src="/image/imra.svg" alt="Logo" className="w-12 h-12" />
+    <div className="w-24 h-32  flex items-center justify-center  transition-colors duration-300">
+     <img src="/imra.png" alt="Logo" className="w-44 h-32" />
     </div>
     <div className="flex flex-col">
       <span className="text-xl font-bold text-gray-900 tracking-tight group-hover:text-blue-600 transition-colors duration-300">
