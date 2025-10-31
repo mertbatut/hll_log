@@ -258,7 +258,7 @@ const ContactPage = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="HLL Lojistik Konum"
+                title="İmra Lojistik Konum"
               />
             </div>
             

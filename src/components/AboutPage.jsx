@@ -140,7 +140,7 @@ const MANAGEMENT_TEAM = [
     position: 'Genel Müdür & Kurucu Ortak',
     experience: '7+ yıl',
     expertise: 'Lojistik Yönetimi',
-    description: 'Lojistik sektöründe 20 yılı aşkın deneyime sahip. HLL Lojistik\'i sektörde güvenilir bir marka haline getirdi.'
+    description: 'Lojistik sektöründe 20 yılı aşkın deneyime sahip. İmra Lojistik\'i sektörde güvenilir bir marka haline getirdi.'
   },
   {
     name: 'Resul Turunç',

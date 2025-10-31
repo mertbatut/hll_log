@@ -205,7 +205,7 @@ const HeroSection = ({ onOpenModal }) => {
             
             <div className="hero-animate mb-10">
               <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-6">
-                <strong>HLL Lojistik</strong> olarak, 8 yıllık deneyimimiz ve modern teknoloji altyapımızla 
+                <strong>İmra Lojistik</strong> olarak, 8 yıllık deneyimimiz ve modern teknoloji altyapımızla 
                 Avrupa genelinde <span className="text-blue-600 font-semibold">güvenilir nakliye çözümleri</span> sunuyoruz.
               </p>
               <p className="text-lg text-gray-500 leading-relaxed">
@@ -250,7 +250,7 @@ const HeroSection = ({ onOpenModal }) => {
                 <div className="h-32 relative">
                   <img 
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBkiWIVlObm3HsYiHdSfWlhS5Gvu_fsJGIaARr1-PxkxEi-SW-_mglVTBTrn-1SP9Q_Ks&usqp=CAU"
-                    alt="HLL Lojistik İletişim"
+                    alt="İmra Lojistik İletişim"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.style.display = 'none';
