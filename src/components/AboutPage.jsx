@@ -69,25 +69,19 @@ const MILESTONES = [
     highlight: true
   },
   {
-    year: '2010',
+    year: '2018',
     title: 'İlk Avrupa Rotası',
     description: 'Almanya\'ya ilk uluslararası kara yolu taşımacılığı hizmetimizi başlattık.',
     icon: Route
   },
   {
-    year: '2012',
-    title: 'Hamburg Ofisi',
-    description: 'Almanya Hamburg\'da Avrupa operasyonları için ilk yurtdışı ofisimizi açtık.',
-    icon: MapPin
-  },
-  {
-    year: '2014',
+    year: '2024',
     title: 'Depo Tesisi Yatırımı',
     description: 'Bursa\'da 1.000 m² modern depolama tesisimizi hizmete aldık.',
     icon: Package
   },
   {
-    year: '2015-2018',
+    year: '2021',
     title: 'Avrupa Genişlemesi',
     description: 'Fransa, İtalya, İspanya ve Hollanda\'da operasyonlarımızı başlattık.',
     icon: Globe
@@ -140,7 +134,7 @@ const MANAGEMENT_TEAM = [
     position: 'Genel Müdür & Kurucu Ortak',
     experience: '7+ yıl',
     expertise: 'Lojistik Yönetimi',
-    description: 'Lojistik sektöründe 20 yılı aşkın deneyime sahip. İmra Lojistik\'i sektörde güvenilir bir marka haline getirdi.'
+    description: 'Lojistik sektöründe 7 yılı aşkın deneyime sahip. İmra Lojistik\'i sektörde güvenilir bir marka haline getirdi.'
   },
   {
     name: 'Resul Turunç',
@@ -153,15 +147,15 @@ const MANAGEMENT_TEAM = [
     name: 'Arda Şen',
     position: 'Operasyon Müdürü',
     experience: '6+ yıl',
-    expertise: 'Finansal Yönetim',
-    description: 'Şirketin finansal büyümesini planlıyor ve risk yönetimi konularında uzman.'
+    expertise: 'Satış & Pazarlama',
+    description: 'Yeni pazarlar ve müşteri portföyü geliştirme konularında şirketin büyümesini sağlıyor.'
   },
   {
     name: 'Nil Mutlu Dokuz',
     position: 'Muhasebe Müdürü',
     experience: '4+ yıl',
-    expertise: 'Satış & Pazarlama',
-    description: 'Yeni pazarlar ve müşteri portföyü geliştirme konularında şirketin büyümesini sağlıyor.'
+    expertise: 'Finansal Yönetim',
+    description: 'Şirketin finansal büyümesini planlıyor ve risk yönetimi konularında uzman..'
   }
 ];
 

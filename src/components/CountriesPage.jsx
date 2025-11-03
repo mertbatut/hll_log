@@ -60,12 +60,8 @@ const COUNTRIES_DATA = [
     flag: '🇹🇷',
     region: 'Ana Merkez & Hub',
     status: 'headquarters',
-    established: '2008',
+    established: '2018',
     mainCity: 'Bursa',
-    coverage: '81 İl',
-    dailyVolume: '5000+',
-    employees: '150+',
-    facilities: 3,
     services: [
       { icon: Truck, name: 'Yurtiçi Kara Taşımacılığı', desc: 'Türkiye geneli kapıdan kapıya teslimat', status: 'primary' },
       { icon: Package, name: 'Depolama & Konsolidasyon', desc: '1.000m² modern depo tesisi', status: 'primary' },
@@ -88,11 +84,10 @@ const COUNTRIES_DATA = [
     name: 'Almanya',
     flag: '🇩🇪',
     region: 'Avrupa Koordinasyon Hub',
-    established: '2012',
+    established: '2018',
     mainCity: 'Hamburg',
     coverage: 'Almanya Geneli',
-    dailyVolume: '2000+',
-    employees: '45+',
+
     facilities: 2,
     services: [
       { icon: Truck, name: 'Kara Yolu Taşımacılığı', desc: 'Almanya içi ve transit geçiş rotaları', status: 'primary' },
@@ -112,11 +107,9 @@ const COUNTRIES_DATA = [
     flag: '🇫🇷',
     region: 'Batı Avrupa',
     status: 'active',
-    established: '2015',
+    established: '2018',
     mainCity: 'Paris',
     coverage: 'Fransa Geneli',
-    dailyVolume: '800+',
-    employees: '25+',
     facilities: 1,
     services: [
       { icon: Truck, name: 'Kara Yolu Express', desc: 'Fransa içi hızlı dağıtım ağı', status: 'primary' },
@@ -135,11 +128,9 @@ const COUNTRIES_DATA = [
     flag: '🇮🇹',
     region: 'Güney Avrupa',
     status: 'active',
-    established: '2016',
+    established: '2018',
     mainCity: 'Milano',
     coverage: 'İtalya Geneli',
-    dailyVolume: '600+',
-    employees: '20+',
     facilities: 1,
     services: [
       { icon: Truck, name: 'Alp Geçiş Rotaları', desc: 'İtalya-Avrupa kara bağlantısı', status: 'primary' },
@@ -161,8 +152,6 @@ const COUNTRIES_DATA = [
     established: '2018',
     mainCity: 'Sofya',
     coverage: 'Bulgaristan Geneli',
-    dailyVolume: '400+',
-    employees: '15+',
     facilities: 1,
     services: [
       { icon: Truck, name: 'Bulgaristan-Türkiye Rotası', desc: 'Direkt kara yolu bağlantısı', status: 'primary' },
@@ -181,11 +170,9 @@ const COUNTRIES_DATA = [
     flag: '🇳🇱',
     region: 'Benelux Hub',
     status: 'active',
-    established: '2017',
+    established: '2018',
     mainCity: 'Amsterdam',
     coverage: 'Benelux Bölgesi',
-    dailyVolume: '500+',
-    employees: '18+',
     facilities: 1,
     services: [
       { icon: Truck, name: 'Benelux Dağıtım', desc: 'Hollanda-Belçika-Lüksemburg ağı', status: 'primary' },
@@ -209,9 +196,9 @@ const EXPANSION_TIMELINE = [
 
 const NETWORK_OVERVIEW = [
   { icon: Globe, value: '6', label: 'Aktif Ülke', growth: '+2 (2025)' },
-  { icon: Building, value: '12', label: 'Ofis & Tesis', growth: '+4 planlanıyor' },
-  { icon: Truck, value: '9.3K+', label: 'Günlük Koli', growth: '%15 artış' },
-  { icon: Users, value: '273', label: 'Çalışan', growth: '+50 (2025)' }
+  { icon: Building, value: '2', label: 'Ofis & Tesis', growth: '+4 planlanıyor' },
+  { icon: Truck, value: '3K+', label: 'Günlük Koli', growth: '%15 artış' },
+  { icon: Users, value: '27', label: 'Çalışan', growth: '+50 (2025)' }
 ];
 // Components
 const HeroSection = () => {
